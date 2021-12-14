@@ -1,15 +1,15 @@
 package com.ldp.budgeter.model;
 
-import java.time.LocalDateTime;
+import java.sql.Date;
 
 public class Transactions {
 
     private int transId;
     private String direction;
-    private String category;
+    private int budgetId;
     private String subCategory;
-    private LocalDateTime transDate;
-    private LocalDateTime endDate;
+    private Date transDate;
+    private Date endDate;
     private float transAmount;
     private String frequency;
     private int customerId;
@@ -31,12 +31,12 @@ public class Transactions {
         this.direction = direction;
     }
 
-    public String getCategory() {
-        return category;
+    public int getBudgetId() {
+        return budgetId;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setBudgetId(int budgetId) {
+        this.budgetId = budgetId;
     }
 
     public String getSubCategory() {
@@ -47,19 +47,19 @@ public class Transactions {
         this.subCategory = subCategory;
     }
 
-    public LocalDateTime getTransDate() {
+    public Date getTransDate() {
         return transDate;
     }
 
-    public void setTransDate(LocalDateTime transDate) {
+    public void setTransDate(Date transDate) {
         this.transDate = transDate;
     }
 
-    public LocalDateTime getEndDate() {
+    public Date getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(LocalDateTime endDate) {
+    public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
 

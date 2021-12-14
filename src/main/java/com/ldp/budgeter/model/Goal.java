@@ -1,5 +1,6 @@
 package com.ldp.budgeter.model;
 
+import java.sql.Date;
 import java.time.LocalDateTime;
 
 public class Goal {
@@ -8,7 +9,7 @@ public class Goal {
     private String goalName;
     private float goalBal;
     private float targetAmount;
-    private LocalDateTime targetDate;
+    private Date targetDate;
     private boolean achieved;
     private int customerId;
 
@@ -45,15 +46,15 @@ public class Goal {
         this.targetAmount = targetAmount;
     }
 
-    public LocalDateTime getTargetDate() {
+    public Date getTargetDate() {
         return targetDate;
     }
 
-    public void setTargetDate(LocalDateTime targetDate) {
+    public void setTargetDate(Date targetDate) {
         this.targetDate = targetDate;
     }
 
-    public boolean isAchieved() {
+    public boolean getAchieved() {
         return achieved;
     }
 

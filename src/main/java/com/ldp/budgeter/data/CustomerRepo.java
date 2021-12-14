@@ -6,4 +6,10 @@ public interface CustomerRepo {
 
     Customer findById(int customerId);
 
+    Customer add(Customer customer);
+
+    boolean update(Customer customer);
+
+    boolean deleteById(int customerId);
+
 }

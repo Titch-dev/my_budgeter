@@ -1,6 +1,6 @@
 package com.ldp.budgeter.model;
 
-import java.time.LocalDateTime;
+import java.sql.Date;
 
 public class Customer {
 
@@ -8,7 +8,7 @@ public class Customer {
     private String firstName;
     private String email;
     private String balName;
-    private LocalDateTime balStart;
+    private Date balStart;
     private float currentBal;
     private float currentIn;
     private float currentOut;
@@ -45,11 +45,11 @@ public class Customer {
         this.balName = balName;
     }
 
-    public LocalDateTime getBalStart() {
+    public Date getBalStart() {
         return balStart;
     }
 
-    public void setBalStart(LocalDateTime balStart) {
+    public void setBalStart(Date balStart) {
         this.balStart = balStart;
     }
 
