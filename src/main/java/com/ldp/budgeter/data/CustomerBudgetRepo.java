@@ -8,6 +8,8 @@ public interface CustomerBudgetRepo {
 
     List<CustomerBudget> findAllById(int customerId);
 
+    CustomerBudget findById(int customerId, int budgetId);
+
     boolean add(CustomerBudget customerBudget);
 
     boolean update(CustomerBudget customerBudget);

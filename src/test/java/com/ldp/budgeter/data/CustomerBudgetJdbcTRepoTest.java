@@ -32,6 +32,12 @@ public class CustomerBudgetJdbcTRepoTest {
     }
 
     @Test
+    void shouldFindById(){
+        CustomerBudget actual = repo.findById(1,8);
+        assertNotNull(actual);
+    }
+
+    @Test
     void shouldAdd(){
         CustomerBudget test = makeCustomerBudget();
         assertTrue(repo.add(test));

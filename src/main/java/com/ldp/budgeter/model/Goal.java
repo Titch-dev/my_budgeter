@@ -13,6 +13,17 @@ public class Goal {
     private boolean achieved;
     private int customerId;
 
+    public Goal(){
+
+    }
+
+    public Goal(int goalId, String goalName, float targetAmount, int customerId){
+        this.goalId = goalId;
+        this.goalName = goalName;
+        this.targetAmount = targetAmount;
+        this.customerId = customerId;
+    }
+
 
     public int getGoalId() {
         return goalId;

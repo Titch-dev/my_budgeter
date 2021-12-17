@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.sql.Date;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -22,6 +23,13 @@ public class TransactionsJdbcTRepoTest {
 
     @BeforeEach
     void setup() { knownGoodState.set();}
+
+    @Test
+    void shouldAllJoeTransactions() {
+        List<Transactions> actual = repo.findAll(1);
+        assertNotNull(actual);
+        assertEquals(2, actual.size());
+    }
 
     @Test
     void shouldFindMainJob() {

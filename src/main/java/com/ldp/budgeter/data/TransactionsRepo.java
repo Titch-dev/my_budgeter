@@ -2,7 +2,11 @@ package com.ldp.budgeter.data;
 
 import com.ldp.budgeter.model.Transactions;
 
+import java.util.List;
+
 public interface TransactionsRepo {
+
+    List<Transactions> findAll(int customerId);
 
     Transactions findById(int transId);
 

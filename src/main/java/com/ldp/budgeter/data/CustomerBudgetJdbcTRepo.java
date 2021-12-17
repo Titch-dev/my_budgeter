@@ -31,6 +31,19 @@ public class CustomerBudgetJdbcTRepo implements CustomerBudgetRepo{
     }
 
     @Override
+    public CustomerBudget findById(int customerId, int budgetId){
+
+        final String sql = "select customer_id, budget_id, accurate_balance, user_def_balance " +
+                "from customer_budget " +
+                "where customer_id = ? and budget_id = ?;";
+
+        return jdbcTemplate.query(sql, new CustomerBudgetMapper(), customerId, budgetId)
+                .stream()
+                .findFirst()
+                .orElse(null);
+    }
+
+    @Override
     public boolean add(CustomerBudget customerBudget) {
 
         final String sql = "insert into customer_budget (customer_id, budget_id, accurate_balance, user_def_balance) " +

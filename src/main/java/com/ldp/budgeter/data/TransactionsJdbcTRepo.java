@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
 import java.sql.Statement;
+import java.util.List;
 
 @Repository
 public class TransactionsJdbcTRepo implements TransactionsRepo{
@@ -17,6 +18,14 @@ public class TransactionsJdbcTRepo implements TransactionsRepo{
 
     public TransactionsJdbcTRepo(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
+    }
+
+    @Override
+    public List<Transactions> findAll(int customerId){
+
+        final String sql = "select * from transactions where customer_id = ?;";
+
+        return jdbcTemplate.query(sql, new TransactionsMapper(), customerId);
     }
 
     @Override

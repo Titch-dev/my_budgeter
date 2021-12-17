@@ -14,6 +14,16 @@ public class Transactions {
     private String frequency;
     private int customerId;
 
+    public Transactions(){
+    }
+
+    public Transactions(int transId, String direction, int budgetId, int customerId){
+        this.transId = transId;
+        this.direction = direction;
+        this.budgetId = budgetId;
+        this.customerId = customerId;
+    }
+
 
     public int getTransId() {
         return transId;

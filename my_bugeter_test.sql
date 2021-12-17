@@ -23,7 +23,7 @@ create table customer (
 drop table if exists budget;
 create table budget(
 	id int primary key auto_increment,
-    `name` enum ("savings", "leisure", "shelter", "transport", "food", "credit", "goal", "salary", "investments", "other") not null
+    budget_name enum ("savings", "leisure", "shelter", "transport", "food", "credit", "goal", "salary", "investments", "other") not null
 );
 
 drop table if exists transactions;
@@ -45,8 +45,6 @@ create table transactions(
         references customer(id)
         on delete cascade
 );
-
-
 
 drop table if exists customer_budget;
 create table customer_budget(
@@ -103,7 +101,7 @@ SET SQL_SAFE_UPDATES = 0;
 							current_in, current_out, bal_goal, bal_savings)
 				values ("joe", "j@jmail.com", default, "2021-12-15", 420.00, 2220.00, 1600.00, 425.00, 100.00);
                 
-	insert into budget (`name`)
+	insert into budget (budget_name)
 	values ("savings"),("leisure"), ("shelter"), ("transport"), ("food"), ("credit"), ("goal"), ("salary"), ("investments"), ("other");
                 
 	insert into transactions (direction, budget_id, sub_category, trans_date, end_date, trans_amount, frequency, customer_id)
@@ -125,8 +123,16 @@ delimiter ;
 
 -- call set_known_good_state();
 
-use my_budgeter;
+use my_budgeter_test;
 select * from transactions;
 select * from customer;
+select * from goal;
+select * from budget;
+select * from customer_budget;
 
+SET SQL_SAFE_UPDATES = 0;
+update customer_budget
+set accurate_balance = 200
+where customer_id = 1 AND budget_id = 8;
+SET SQL_SAFE_UPDATES = 1;
 

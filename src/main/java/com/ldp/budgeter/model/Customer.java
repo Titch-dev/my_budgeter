@@ -12,6 +12,17 @@ public class Customer {
     private float currentBal;
     private float currentIn;
     private float currentOut;
+    private float balGoal;
+    private float balSavings;
+
+    public Customer(){
+    }
+
+    public Customer(int customerId, String firstName, String email){
+        this.customerId = customerId;
+        this.firstName = firstName;
+        this.email = email;
+    }
 
     public int getCustomerId() {
         return customerId;
@@ -93,9 +104,14 @@ public class Customer {
         this.balSavings = balSavings;
     }
 
-    private float balGoal;
-    private float balSavings;
-
+    @Override
+    public String toString(){
+        return "Customer{" +
+                "customerId = " + customerId +
+                ", firstName = " + firstName +
+                ", email = " + email +
+                "}";
+    }
 
 
 }

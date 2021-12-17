@@ -77,7 +77,27 @@ create table goal (
         references customer(id)
         on delete cascade
 );
+SET SQL_SAFE_UPDATES = 0;
 
-
+-- removing any other existing data
+	
+    insert into customer (first_name, email, bal_name, bal_start, current_bal, 
+							current_in, current_out, bal_goal, bal_savings)
+				values ("joe", "j@jmail.com", default, "2021-12-15", 420.00, 2220.00, 1600.00, 425.00, 100.00);
+                
 	insert into budget (budget_name)
 	values ("savings"),("leisure"), ("shelter"), ("transport"), ("food"), ("credit"), ("goal"), ("salary"), ("investments"), ("other");
+                
+	insert into transactions (direction, budget_id, sub_category, trans_date, end_date, trans_amount, frequency, customer_id)
+	values  ("in", 8, "main job", "2021-12-25", default, 2100, "month", 1),
+            ("out", 5, "dinner friends", "2021-11-25", default, 45, "once", 1);
+            
+	insert into customer_budget(customer_id, budget_id, accurate_balance, user_def_balance)
+    values (1, 8, default, default),
+			(1, 5, default, default);
+            
+	insert into goal (goal_name, balance, target_amount, target_date, achieved, customer_id)
+    values ("my goal", default, 500, "2022-10-01", default, '1');
+            
+
+SET SQL_SAFE_UPDATES = 1;
